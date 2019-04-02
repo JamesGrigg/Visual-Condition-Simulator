@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77a2a4a6ea8894a76b1f4a2a81038f38, type: 3}
-  m_Name: VisualImpairment
+  m_Name: Glaucoma
   m_EditorClassIdentifier: 
-  id: 1
-  icon: {fileID: 21300000, guid: fc43f89a2fdad492ebbc109bf468f64f, type: 3}
+  id: 5
+  icon: {fileID: 21300000, guid: c0efc088111a542fd95e70e1ca065e45, type: 3}
   prefab: {fileID: 0}
-  toolTip: Visual Impairment
-  tooltipSprite: {fileID: 21300000, guid: 167e6eef2ccff4d40b1fe4c4ae15ef94, type: 3}
+  toolTip: Glaucoma
+  tooltipSprite: {fileID: 21300000, guid: 73fb0f2a752f14d7b80e87e346458d7d, type: 3}

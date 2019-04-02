@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b5e59faba95e545028f577c0b9b1fdf1, type: 3}
   prefab: {fileID: 0}
   toolTip: Colour Blindness
-  tooltipSprite: {fileID: 21300000, guid: de73393b4d22c4d7cb320f07b6555cd3, type: 3}
+  tooltipSprite: {fileID: 21300000, guid: 734a636393d6f479291f17ed0dedfa42, type: 3}
