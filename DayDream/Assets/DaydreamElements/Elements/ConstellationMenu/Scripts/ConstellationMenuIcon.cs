@@ -190,7 +190,9 @@ namespace DaydreamElements.ConstellationMenu {
     private GameObject decorationLabel;
     private IconValue decorationLabelAlpha = new IconValue(DEFAULT_DECORATION_LABEL_ALPHA);
 
-    /// Describes how a button should behave in a particular state.
+    private EventListener listener;
+
+        /// Describes how a button should behave in a particular state.
     public class FadeParameters {
 
       public FadeParameters(IconState nextState) {
@@ -518,9 +520,12 @@ namespace DaydreamElements.ConstellationMenu {
       SetBackgroundTransparency(iconBgAlpha.ValueAtTime(Time.time));
       SetRendererAlpha(tooltipRenderer, tooltipAlpha.ValueAtTime(Time.time));
 
+
+      listener = new EventListener();
       if (buttonActive) {
         if (selected && (GvrControllerInput.ClickButtonDown)) {
           menuRoot.MakeSelection(menuItem);
+          listener.OnMenuDecision(menuItem);
           if (childMenus.Count == 0) {
             menuRoot.CloseAll();
           }
