@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DaydreamElements.Common.IconMenu;
+using DaydreamElements.ConstellationMenu;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class GameManager : MonoBehaviour
     public GameObject removeUI;
     public GameObject timerSlider;
     public SliderScripts sliderTime;
+
+    public ConstellationMenuRoot menuRoot;
+
+    public EffectManager effectManager;
 
     public bool gameOver;
 
@@ -19,6 +25,8 @@ public class GameManager : MonoBehaviour
         gameOver = false;
         timerSlider.SetActive(true);
         StartCoroutine(SpawnCoroutine());
+        menuRoot.OnItemSelected.AddListener(OnItemSelected);
+        effectManager = new EffectManager();
     }
 
     public void CompleteLevel()
@@ -41,6 +49,15 @@ public class GameManager : MonoBehaviour
     {
         removeUI.SetActive(false);
         timerSlider.SetActive(false);
+    }
+
+    private void OnItemSelected(ConstellationMenuItem item)
+    {
+        if (item.prefab == null)
+        {
+            effectManager.ConditionSelector(item.toolTip);
+            return;
+        }
     }
 
     IEnumerator SpawnCoroutine()

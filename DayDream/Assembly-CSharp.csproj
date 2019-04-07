@@ -251,6 +251,7 @@
     <Compile Include="Assets\DaydreamRenderer\Scripts\ShadowCaster.cs" />
     <Compile Include="Assets\DaydreamRenderer\Scripts\ShadowReceiver.cs" />
     <Compile Include="Assets\DaydreamRenderer\Scripts\ShadowSource.cs" />
+    <Compile Include="Assets\EffectManager.cs" />
     <Compile Include="Assets\EventListener.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />

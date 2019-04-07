@@ -52,7 +52,7 @@ namespace UnityEngine.Rendering.PostProcessing
         /// <summary>
         /// The amount of vignetting on screen.
         /// </summary>
-        [Range(0f, 1f), Tooltip("Amount of vignetting on screen.")]
+        [Range(0f, 5f), Tooltip("Amount of vignetting on screen.")]
         public FloatParameter intensity = new FloatParameter { value = 0f };
 
         /// <summary>

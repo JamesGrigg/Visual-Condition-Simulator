@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering.PostProcessing;
-using DaydreamElements.ConstellationMenu;
 
 public class EventListener : MonoBehaviour
 {
     // Start is called before the first frame update
     private Renderer renderer;
     private Rigidbody rb;
-
-    private PostProcessVolume m_Volume;
-    private Vignette m_Vignette;
 
 
     void Start()
@@ -45,6 +40,4 @@ public class EventListener : MonoBehaviour
         rb.isKinematic = false;
         transform.SetParent(null, true);
     }
-
-    
 }
