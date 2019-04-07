@@ -521,11 +521,9 @@ namespace DaydreamElements.ConstellationMenu {
       SetRendererAlpha(tooltipRenderer, tooltipAlpha.ValueAtTime(Time.time));
 
 
-      listener = new EventListener();
       if (buttonActive) {
         if (selected && (GvrControllerInput.ClickButtonDown)) {
           menuRoot.MakeSelection(menuItem);
-          listener.OnMenuDecision(menuItem);
           if (childMenus.Count == 0) {
             menuRoot.CloseAll();
           }

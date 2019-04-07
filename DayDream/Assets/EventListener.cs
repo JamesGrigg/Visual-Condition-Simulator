@@ -34,7 +34,7 @@ public class EventListener : MonoBehaviour
 
     public void OnGrab()
     {
-        rb.useGravity = false;
+        rb.isKinematic = true;
         Transform pointerTransform = GvrPointerInputModule.Pointer.PointerTransform;
 
         transform.SetParent(pointerTransform, true);
@@ -42,28 +42,9 @@ public class EventListener : MonoBehaviour
 
     public void OnRelease()
     {
-        rb.useGravity = true;
+        rb.isKinematic = false;
         transform.SetParent(null, true);
     }
 
-    public void OnMenuDecision(ConstellationMenuItem menuItem)
-    {
-        print(menuItem);
-        if (menuItem.ToString().Equals("Glaucoma (DaydreamElements.ConstellationMenu.ConstellationMenuItem)"))
-        {
-            Vignette(menuItem);
-        }
-    }
-
-    public void Vignette(ConstellationMenuItem menuItem)
-    {
-        print(menuItem);
-
-        m_Vignette = ScriptableObject.CreateInstance<Vignette>();
-        m_Vignette.enabled.Override(true);
-        m_Vignette.intensity.Override(1f);
-
-        m_Volume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, m_Vignette);
-        m_Volume.weight = 1f;
-    }
+    
 }

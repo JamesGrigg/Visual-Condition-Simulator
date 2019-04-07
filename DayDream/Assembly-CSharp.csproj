@@ -252,6 +252,7 @@
     <Compile Include="Assets\DaydreamRenderer\Scripts\ShadowReceiver.cs" />
     <Compile Include="Assets\DaydreamRenderer\Scripts\ShadowSource.cs" />
     <Compile Include="Assets\EventListener.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\GVRDemoManager.cs" />
@@ -355,6 +356,8 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\SinkTrigger.cs" />
+    <Compile Include="Assets\SliderScripts.cs" />
     <None Include="Assets\DaydreamRenderer\Shaders\daydreamStandardInclude.cginc" />
     <None Include="Assets\DaydreamElements\Elements\ObjectManipulationDemo\Shaders\FlexLaserReticle.shader" />
     <None Include="Assets\DaydreamRenderer\Shaders\daydreamGizmo.shader" />
