@@ -19,7 +19,7 @@ namespace UnityEngine.Rendering.PostProcessing
         /// <summary>
         /// The amount of tangential distortion.
         /// </summary>
-        [Range(0f, 1f), Tooltip("Amount of tangential distortion.")]
+        [Range(0f, 5f), Tooltip("Amount of tangential distortion.")]
         public FloatParameter intensity = new FloatParameter { value = 0f };
 
         /// <summary>

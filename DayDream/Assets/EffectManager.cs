@@ -7,13 +7,14 @@ using UnityEngine.Rendering.PostProcessing;
 public class EffectManager : MonoBehaviour
 {
     public GameObject effects;
-    public PostProcessVolume ppLayer;
-    public double ppWeight;
+    public PostProcessVolume glaucomaLayer;
+    public PostProcessVolume cataractsLayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        ppLayer.weight = 0;
+        glaucomaLayer.weight = 0;
+        cataractsLayer.weight = 0;
     }
 
 
@@ -35,6 +36,11 @@ public class EffectManager : MonoBehaviour
         {
             MascularDegeneration();
         }
+        else if (item.Equals("Reset"))
+        {
+            glaucomaLayer.weight = 0;
+            cataractsLayer.weight = 0;
+        }
         else
         {
             print("Nothing");
@@ -44,6 +50,14 @@ public class EffectManager : MonoBehaviour
     void Cataracts()
     {
         print("Cataracts");
+        if (cataractsLayer.weight < 0.8)
+        {
+            cataractsLayer.weight += (float)0.2;
+        }
+        else
+        {
+            cataractsLayer.weight = 0;
+        }
     }
 
     void DiabeticRetinopy()
@@ -54,11 +68,13 @@ public class EffectManager : MonoBehaviour
     void Glaucoma()
     {
         print("Glaucoma");
-        if (ppWeight < 0.8)
+        if (glaucomaLayer.weight < 0.8)
+        {        
+            glaucomaLayer.weight += (float)0.2;
+        }
+        else
         {
-            ppWeight += 0.2;
-            float b = Convert.ToSingle(ppWeight);
-            ppLayer.weight = b;
+            glaucomaLayer.weight = 0;
         }
     }
 
