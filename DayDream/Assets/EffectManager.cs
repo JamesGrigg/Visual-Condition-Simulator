@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
@@ -6,14 +7,15 @@ using UnityEngine.Rendering.PostProcessing;
 public class EffectManager : MonoBehaviour
 {
     public GameObject effects;
-
-    private PostProcessVolume m_Volume;
-    private Vignette m_Vignette;
+    public PostProcessVolume ppLayer;
+    public double ppWeight;
 
     // Start is called before the first frame update
     void Start()
     {
+        ppLayer.weight = 0;
     }
+
 
     public void ConditionSelector(string item)
     {
@@ -21,7 +23,7 @@ public class EffectManager : MonoBehaviour
         {
             Cataracts();
         }
-        else if (item.Equals("Diabetic Retinopy"))
+        else if (item.Equals("Diabetic Retinopathy"))
         {
             DiabeticRetinopy();
         }
@@ -29,7 +31,7 @@ public class EffectManager : MonoBehaviour
         {
             Glaucoma();
         }
-        else if (item.Equals("Mascular Degeneration"))
+        else if (item.Equals("Macular Degeneration"))
         {
             MascularDegeneration();
         }
@@ -52,6 +54,12 @@ public class EffectManager : MonoBehaviour
     void Glaucoma()
     {
         print("Glaucoma");
+        if (ppWeight < 0.8)
+        {
+            ppWeight += 0.2;
+            float b = Convert.ToSingle(ppWeight);
+            ppLayer.weight = b;
+        }
     }
 
     void MascularDegeneration()
@@ -61,7 +69,6 @@ public class EffectManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    { 
     }
 }

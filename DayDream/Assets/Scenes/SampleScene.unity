@@ -324,6 +324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f277c93eeb5e4540be6fefa14f1de55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effects: {fileID: 2037322420}
+  ppLayer: {fileID: 2037322422}
+  ppWeight: 0
 --- !u!4 &425755972
 Transform:
   m_ObjectHideFlags: 0
@@ -522,7 +525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &638855537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -982,7 +985,6 @@ GameObject:
   m_Component:
   - component: {fileID: 959391078}
   - component: {fileID: 959391077}
-  - component: {fileID: 959391079}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1004,8 +1006,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   completeLevelUI: {fileID: 1591361325}
   failedLevelUI: {fileID: 762715847}
-  removeUI: {fileID: 638855536}
+  instructionUI: {fileID: 638855536}
   timerSlider: {fileID: 2012271681}
+  sliderUI: {fileID: 1824406346}
   sliderTime: {fileID: 2012271682}
   menuRoot: {fileID: 556563061}
   effectManager: {fileID: 425755971}
@@ -1024,18 +1027,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &959391079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959391076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f277c93eeb5e4540be6fefa14f1de55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1085450822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1060,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1086,7 +1077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4575472, g: 1, b: 0.59145087, a: 1}
+  m_Color: {r: 0.45882353, g: 1, b: 0.5921569, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1807,13 +1798,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1824406348}
   - component: {fileID: 1824406347}
+  - component: {fileID: 1824406349}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1824406347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,6 +1877,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 151.2}
   m_SizeDelta: {x: 264.99, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1824406349
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824406346}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10747b51c33dd1346a0a1c3cc4caf9fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1839072706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,9 +2049,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2037322421}
   - component: {fileID: 2037322422}
-  - component: {fileID: 2037322423}
   m_Layer: 8
-  m_Name: PostProcessing
+  m_Name: Glaucoma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2077,18 +2087,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
---- !u!114 &2037322423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037322420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f277c93eeb5e4540be6fefa14f1de55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2075231550
 GameObject:
   m_ObjectHideFlags: 0

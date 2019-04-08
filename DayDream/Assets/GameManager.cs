@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject completeLevelUI;
     public GameObject failedLevelUI;
-    public GameObject removeUI;
+    public GameObject instructionUI;
     public GameObject timerSlider;
+    public GameObject sliderUI;
     public SliderScripts sliderTime;
 
     public ConstellationMenuRoot menuRoot;
-
     public EffectManager effectManager;
 
     public bool gameOver;
@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOver = false;
-        timerSlider.SetActive(true);
-        StartCoroutine(SpawnCoroutine());
         menuRoot.OnItemSelected.AddListener(OnItemSelected);
-        effectManager = new EffectManager();
+
+        timerSlider.SetActive(true);
+        instructionUI.SetActive(true);
+        sliderUI.SetActive(true);
+        StartCoroutine(SpawnCoroutine());
     }
 
     public void CompleteLevel()
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     void RemoveUI()
     {
-        removeUI.SetActive(false);
+        instructionUI.SetActive(false);
         timerSlider.SetActive(false);
     }
 
