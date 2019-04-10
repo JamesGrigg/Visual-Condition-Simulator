@@ -1,0 +1,103 @@
+Week 1:
+Monday:
+- Introductory class
+- Set up computers / workspace
+- Learnt about projects
+- Game dev was popular
+- Interview
+
+Thursday:
+- Learnt which project 
+- Game dev - sub group
+- Easy to form group with Nick and Mitch
+- Got to know each other
+
+Week 2:
+Monday:
+- Unity intro
+- Learnt Unity once we got it working
+
+Thursday:
+- Practiced making different Unity scenes
+- Made scene that could be interacted with, including gravity
+- Continued to learn basics of Unity
+
+Week 3:
+Monday:
+- All I know at this point was that I was going to be working with VR
+- Watched Unity tutorials
+- Made basic VR world which you can pick up Objects
+
+Thursday:
+- I learnt that I would be working with visual impairments
+- Added a colourblindess preset into the pick ball up game
+
+Week 4:
+Monday:
+- Went further indepth with VR worlds and Colour blindness
+- Documented the different types of Visual conditions onto Github
+
+Thursday:
+- Colour blindness simulator show case
+- Finished documentation and impemented a world based on it
+
+Week 5:
+Monday:
+- Progress for what we do
+- Got split into 3 groups
+- Met with Mary
+- Discussed potential ideas and established a starting point
+- Emailed her for ideas
+- Showed her Colour blindness, she liked it
+
+Thursday:
+- This was essentially a research day
+- Learnt all about different visual impairments
+- Documented them all onto Github
+- Began thinking of specific things I could add
+- Built a simple 3D kitchen
+
+
+Week 6:
+Monday:
+- Weekend made kitchen have physics on the objects so they could be picked up and could fall
+- Weird bug that causes objects to magicly fly away after touching objects
+- No class on Monday
+
+Thursday:
+- Began work with Post processing to create a dynamic Glaucoma Vignette effect
+- Fixed issue with objects that magicly fly away
+- Gravity turned off caused them to fly away
+
+Week 7:
+Monday:
+- Began looking into Daydream Elements
+- Realised I needed to restart my Kitchen scene with a fresh install of DayDream Elements as it does not support other version of GoogleVR
+
+Tuesday:
+- Met with Mary
+- Talked about how to make the simulation more enjoyable
+- Maybe a game?
+- Things to do in the world
+- Discussed potential ideas
+- Happy with where I was in development
+- Clarified specific details
+
+Thursday:
+- Adon talked to Mary after my meeting on Monday and they thought of a simple game idea
+- Pressure game
+- Time management / management of things to do
+- Checklists etc
+- Sparked a much needed boost of interest
+- Started working on my menu system
+
+
+Week 8:
+Monday:
+- Over weekend got my menu system working well but due to lack of documentation I was struggling to implement the menu to work with the Glaucoma effect
+- On Monday, I asked Adon if he had any ideas on how to fix menu, we worked together and could not figure it out.
+- Got some people from other Project group to have a look and after a decent look over it, we realised that it had created a second instance of itself. Easy fix.
+- Got menu working well.
+
+Thursday:
+- Meeting with Mary
