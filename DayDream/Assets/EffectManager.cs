@@ -9,12 +9,14 @@ public class EffectManager : MonoBehaviour
     public GameObject effects;
     public PostProcessVolume glaucomaLayer;
     public PostProcessVolume cataractsLayer;
+    public PostProcessVolume starburstsLayer;
 
     // Start is called before the first frame update
     void Start()
     {
         glaucomaLayer.weight = 0;
         cataractsLayer.weight = 0;
+        starburstsLayer.weight = 0;
     }
 
 
@@ -36,10 +38,15 @@ public class EffectManager : MonoBehaviour
         {
             MascularDegeneration();
         }
+        else if (item.Equals("Starbursts"))
+        {
+            Starbursts();
+        }
         else if (item.Equals("Reset"))
         {
             glaucomaLayer.weight = 0;
             cataractsLayer.weight = 0;
+            starburstsLayer.weight = 0;
         }
         else
         {
@@ -81,6 +88,19 @@ public class EffectManager : MonoBehaviour
     void MascularDegeneration()
     {
         print("MascularDegeneration");
+    }
+
+    void Starbursts()
+    {
+        print("Starbursts");
+        if (starburstsLayer.weight < 0.8)
+        {
+            starburstsLayer.weight += (float)0.2;
+        }
+        else
+        {
+            starburstsLayer.weight = 0;
+        }
     }
 
     // Update is called once per frame
