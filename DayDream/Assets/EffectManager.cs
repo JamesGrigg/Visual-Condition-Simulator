@@ -24,7 +24,7 @@ public class EffectManager : MonoBehaviour
     {
         if (item.Equals("Cataracts"))
         {
-            Cataracts();
+            VisualConditionSim(cataractsLayer);
         }
         else if (item.Equals("Diabetic Retinopathy"))
         {
@@ -32,7 +32,7 @@ public class EffectManager : MonoBehaviour
         }
         else if (item.Equals("Glaucoma"))
         {
-            Glaucoma();
+            VisualConditionSim(glaucomaLayer);
         }
         else if (item.Equals("Macular Degeneration"))
         {
@@ -40,7 +40,7 @@ public class EffectManager : MonoBehaviour
         }
         else if (item.Equals("Starbursts"))
         {
-            Starbursts();
+            VisualConditionSim(starburstsLayer);
         }
         else if (item.Equals("Reset"))
         {
@@ -54,17 +54,21 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    void Cataracts()
+    void VisualConditionSim(PostProcessVolume visualCondition)
     {
-        print("Cataracts");
-        if (cataractsLayer.weight < 0.8)
+        if (visualCondition.weight < 0.8)
         {
-            cataractsLayer.weight += (float)0.2;
+            visualCondition.weight += (float)0.2;
         }
         else
         {
-            cataractsLayer.weight = 0;
+            visualCondition.weight = 0;
         }
+    }
+
+    void ColourBlindnessSim()
+    {
+
     }
 
     void DiabeticRetinopy()
@@ -72,35 +76,10 @@ public class EffectManager : MonoBehaviour
         print("DiabeticRetinopy");
     }
 
-    void Glaucoma()
-    {
-        print("Glaucoma");
-        if (glaucomaLayer.weight < 0.8)
-        {        
-            glaucomaLayer.weight += (float)0.2;
-        }
-        else
-        {
-            glaucomaLayer.weight = 0;
-        }
-    }
 
     void MascularDegeneration()
     {
         print("MascularDegeneration");
-    }
-
-    void Starbursts()
-    {
-        print("Starbursts");
-        if (starburstsLayer.weight < 0.8)
-        {
-            starburstsLayer.weight += (float)0.2;
-        }
-        else
-        {
-            starburstsLayer.weight = 0;
-        }
     }
 
     // Update is called once per frame
