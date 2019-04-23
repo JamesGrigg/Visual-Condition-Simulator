@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Colorblind Effect\Assets\Scripts\Colorblind.cs" />
     <Compile Include="Assets\DaydreamElements\Common\Demo\Art\Effects\ExponentialShadowMaps\Scripts\ShadowRendering.cs" />
     <Compile Include="Assets\DaydreamElements\Common\Demo\Art\Effects\Stars\StarRendering.cs" />
     <Compile Include="Assets\DaydreamElements\Common\Demo\Scripts\Effects\EonSpinner.cs" />
@@ -358,6 +357,8 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\jp\gulti\ColorBlindSimulator\Scripts\ColorBlindnessSimulator.cs" />
+    <Compile Include="Assets\jp\gulti\Scripts\PostEffectsBase.cs" />
     <Compile Include="Assets\PostProcessingBlur.cs" />
     <Compile Include="Assets\SinkTrigger.cs" />
     <Compile Include="Assets\SliderScripts.cs" />
@@ -370,10 +371,12 @@
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\UnlitVertColorSky.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Art\Effects\ExponentialShadowMaps\Shaders\ScreenSpace.shader" />
     <None Include="Assets\DaydreamElements\Elements\Tunneling\Shaders\VignetteCage.shader" />
+    <None Include="Assets\jp\gulti\ColorBlindSimulator\LICENSE.txt" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\DaydreamElementsLighting\GlowingOrb.shader" />
     <None Include="Assets\Wood texture floor_01\readme.txt" />
     <None Include="Assets\DaydreamRenderer\Shaders\daydreamDiffuseReflectInclude.cginc" />
+    <None Include="Assets\jp\gulti\ColorBlindSimulator\Resources\ColorBlindSimulator.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\DaydreamElementsLighting\DynamicVertColorWind.shader" />
     <None Include="Assets\DaydreamElements\Elements\ArmModels\Demo\Shaders\ControllerOutline.shader" />
     <None Include="Assets\DaydreamElements\Main\Shaders\UIZTestOff.shader" />
@@ -383,6 +386,7 @@
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\ParticleSolidColorAdditive.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Art\Effects\Stars\Stars.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrAdditiveOverlay.shader" />
+    <None Include="Assets\jp\gulti\ColorBlindSimulator\Resources\ColorBlindInc.cginc" />
     <None Include="Assets\DaydreamElements\Elements\Tunneling\Shaders\VignetteIrisGradient.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Art\Effects\ExponentialShadowMaps\Example\ESMReceiverTemplate.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\UnlitTransparentColor.shader" />
@@ -396,7 +400,6 @@
     <None Include="Assets\GoogleVR\Demos\Environment\DemoEnvUnlitGrayscale.shader" />
     <None Include="Assets\DaydreamElements\Elements\ClickMenu\Demo\Shaders\ControllerReticleColor.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\ScrollingParticleClouds.shader" />
-    <None Include="Assets\Colorblind Effect\Documentation\ReadMe.txt" />
     <None Include="Assets\DaydreamElements\Elements\Teleport\Shaders\LaserSpark.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\TextShader.shader" />
     <None Include="Assets\DaydreamRenderer\Shaders\daydreamDiffuseOnly.shader" />
@@ -409,7 +412,6 @@
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoAmbientOcclusion.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\UnlitVertColorBakedIllum.shader" />
     <None Include="Assets\GoogleVR\Shaders\Video\VideoUnlitShader.shader" />
-    <None Include="Assets\Colorblind Effect\Assets\Shaders\Colorblind.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />
     <None Include="Assets\DaydreamElements\Elements\ObjectManipulationDemo\Demo\Shaders\UnlitInterativeObject.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrControllerReticle.shader" />
