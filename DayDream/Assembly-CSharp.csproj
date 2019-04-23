@@ -358,6 +358,7 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\PostProcessingBlur.cs" />
     <Compile Include="Assets\SinkTrigger.cs" />
     <Compile Include="Assets\SliderScripts.cs" />
     <None Include="Assets\DaydreamRenderer\Shaders\daydreamStandardInclude.cginc" />
@@ -438,6 +439,7 @@
     <None Include="Assets\DaydreamElements\Elements\Teleport\Shaders\BezierArcLaserTextured.shader" />
     <None Include="Assets\DaydreamElements\Elements\ArmModels\Demo\Shaders\UnlitVertColorTransparentOutline.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\ExponentialShadowMaps\UnlitVertColorESMReceiver.shader" />
+    <None Include="Assets\PostProcessingBlurShader.shader" />
     <None Include="Assets\DaydreamRenderer\Resources\shadowFilter.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\ExponentialShadowMaps\SnowTerrainESMReceiver.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\PolyObjectLibrary.shader" />
