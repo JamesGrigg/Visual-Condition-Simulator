@@ -6,10 +6,12 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class EffectManager : MonoBehaviour
 {
-    public GameObject effects;
     public PostProcessVolume glaucomaLayer;
     public PostProcessVolume cataractsLayer;
     public PostProcessVolume starburstsLayer;
+
+    public PostProcessingBlur blur;
+    public Material postprocessMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,11 @@ public class EffectManager : MonoBehaviour
         glaucomaLayer.weight = 0;
         cataractsLayer.weight = 0;
         starburstsLayer.weight = 0;
+        postprocessMaterial.SetFloat("_BlurSize", 0);
+        blur.enabled = false;
+
+        print(postprocessMaterial.GetFloat("_BlurSize"));
+        //postprocessMaterial.SetFloat("_BlurSize", )
     }
 
 
@@ -24,7 +31,10 @@ public class EffectManager : MonoBehaviour
     {
         if (item.Equals("Cataracts"))
         {
-            VisualConditionSim(cataractsLayer);
+            //VisualConditionSim(cataractsLayer);
+            CataractsController(postprocessMaterial);
+
+
         }
         else if (item.Equals("Diabetic Retinopathy"))
         {
@@ -47,6 +57,7 @@ public class EffectManager : MonoBehaviour
             glaucomaLayer.weight = 0;
             cataractsLayer.weight = 0;
             starburstsLayer.weight = 0;
+            blur.enabled = false;
         }
         else
         {
@@ -63,6 +74,25 @@ public class EffectManager : MonoBehaviour
         else
         {
             visualCondition.weight = 0;
+        }
+    }
+
+    void CataractsController(Material cataractsMaterial)
+    {
+        if (blur.enabled == false)
+        {
+            blur.enabled = true;            
+        }
+
+        if (postprocessMaterial.GetFloat("_BlurSize") < 0.02)
+        {
+            float temp = postprocessMaterial.GetFloat("_BlurSize");
+            postprocessMaterial.SetFloat("_BlurSize", (temp += (float)0.005));
+        }
+        else
+        {
+            blur.enabled = false;
+            postprocessMaterial.SetFloat("_BlurSize", 0);
         }
     }
 

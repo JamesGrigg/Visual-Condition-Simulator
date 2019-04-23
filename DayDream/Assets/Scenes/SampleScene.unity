@@ -267,10 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f277c93eeb5e4540be6fefa14f1de55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effects: {fileID: 2037322420}
   glaucomaLayer: {fileID: 2037322422}
   cataractsLayer: {fileID: 828147685}
   starburstsLayer: {fileID: 1906628731}
+  blur: {fileID: 676413843}
+  postprocessMaterial: {fileID: 2100000, guid: c382397cd94f7c140928aef373e098e6, type: 2}
 --- !u!4 &425755972
 Transform:
   m_ObjectHideFlags: 0
@@ -566,8 +567,8 @@ GameObject:
   - component: {fileID: 676413837}
   - component: {fileID: 676413836}
   - component: {fileID: 676413842}
-  - component: {fileID: 676413843}
   - component: {fileID: 676413844}
+  - component: {fileID: 676413843}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -768,7 +769,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676413834}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 364a13ef71f9b40e58990911b66a39cd, type: 3}
   m_Name: 
@@ -965,7 +966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &828147685
 MonoBehaviour:
   m_ObjectHideFlags: 0
