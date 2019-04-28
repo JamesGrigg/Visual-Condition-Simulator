@@ -16,6 +16,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DaydreamElements.Common.IconMenu;
 using UnityEngine.Events;
+using DaydreamElements.ObjectManipulation;
 
 namespace DaydreamElements.ConstellationMenu {
   /// This script is attached to the game object responsible for spawning
@@ -39,7 +40,7 @@ namespace DaydreamElements.ConstellationMenu {
     [SerializeField]
     private ConstellationMenuTree menuTree;
 
-    public GvrLaserPointer laserPointer;
+    public ObjectManipulationPointer laserPointer;
     public UnityEvent OnMenuOpened;
     public UnityEvent OnMenuClosed;
     public ConstellationMenuItemEvent OnItemSelected;
