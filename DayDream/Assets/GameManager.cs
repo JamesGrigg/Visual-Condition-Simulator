@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DaydreamElements.Common.IconMenu;
 using DaydreamElements.ConstellationMenu;
+using DaydreamElements.ObjectManipulation;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     bool win = false;
 
+    private MoveablePhysicsObject[] movableObjects;
+
     void Start()
     {
         gameStarted = false;
@@ -31,11 +34,21 @@ public class GameManager : MonoBehaviour
         menuRoot.OnItemSelected.AddListener(OnItemSelected);
         sliderTime.enabled = false;
 
+        movableObjects = (MoveablePhysicsObject[])GameObject.FindObjectsOfType(typeof(MoveablePhysicsObject));
+        foreach (MoveablePhysicsObject movableObject in movableObjects)
+        {
+            movableObject.enabled = false;
+        }
         //StartGame();
     }
 
     public void StartGame()
     {
+        foreach (MoveablePhysicsObject movableObject in movableObjects)
+        {
+            movableObject.enabled = true;
+        }
+
         gameStarted = true;
         sinkGame = true;
         sliderTime.enabled = true;

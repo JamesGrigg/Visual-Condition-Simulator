@@ -1,0 +1,6 @@
+Added openable doors / cupboards / drawers
+Added a new pointer than shows force when opening doors / interacting with some objects
+Added menu system at start of game
+Implemented colour blindness into menu
+Added a new version of Cataracts, using a custom blur shader, performance issues on mobile
+New way of rendering shadows
