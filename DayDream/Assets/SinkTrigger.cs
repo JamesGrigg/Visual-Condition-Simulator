@@ -8,7 +8,7 @@ public class SinkTrigger : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        if (gameManager.gameOver == false)
+        if (gameManager.gameOver == false && gameManager.sinkGame == true)
         {
             gameManager.CompleteLevel();
         }

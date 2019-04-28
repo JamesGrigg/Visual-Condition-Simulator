@@ -17,14 +17,24 @@ public class GameManager : MonoBehaviour
     public EffectManager effectManager;
 
     public bool gameOver;
+    public bool sinkGame;
 
     bool win = false;
 
     void Start()
     {
         gameOver = false;
+        sinkGame = false;
         menuRoot.OnItemSelected.AddListener(OnItemSelected);
+        sliderTime.enabled = false;
 
+        //StartGame();
+    }
+
+    public void StartGame()
+    {
+        sinkGame = true;
+        sliderTime.enabled = true;
         timerSlider.SetActive(true);
         instructionUI.SetActive(true);
         sliderUI.SetActive(true);
@@ -37,7 +47,7 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         completeLevelUI.SetActive(true);
         RemoveUI();
-        //StopCoroutine(SpawnCoroutine());
+        StopCoroutine(SpawnCoroutine());
     }
 
     void EndGame()
