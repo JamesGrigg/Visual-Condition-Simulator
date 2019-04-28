@@ -9,6 +9,8 @@ public class EventListener : MonoBehaviour
     private Renderer renderer;
     private Rigidbody rb;
 
+    public GameManager gameManager;
+
 
     void Start()
     {
@@ -19,25 +21,37 @@ public class EventListener : MonoBehaviour
     // Update is called once per frame
     public void OnEnter()
     {
-        renderer.material.color = Color.yellow;
+        if (gameManager.gameStarted == true)
+        {
+            renderer.material.color = Color.yellow;
+        }        
     }
 
     public void OnExit()
     {
-        renderer.material.color = Color.white;
+        if (gameManager.gameStarted == true)
+        {
+            renderer.material.color = Color.white;
+        }           
     }
 
     public void OnGrab()
     {
-        rb.isKinematic = true;
-        Transform pointerTransform = GvrPointerInputModule.Pointer.PointerTransform;
+        if (gameManager.gameStarted == true)
+        {
+            rb.isKinematic = true;
+            Transform pointerTransform = GvrPointerInputModule.Pointer.PointerTransform;
 
-        transform.SetParent(pointerTransform, true);
+            transform.SetParent(pointerTransform, true);
+        }       
     }
 
     public void OnRelease()
     {
-        rb.isKinematic = false;
-        transform.SetParent(null, true);
+        if (gameManager.gameStarted == true)
+        {
+            rb.isKinematic = false;
+            transform.SetParent(null, true);
+        }            
     }
 }

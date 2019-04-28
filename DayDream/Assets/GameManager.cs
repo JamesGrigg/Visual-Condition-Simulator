@@ -19,10 +19,13 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
     public bool sinkGame;
 
+    public bool gameStarted; // This variable allows me to control elements in scene to stop things from being interacted with too early
+
     bool win = false;
 
     void Start()
     {
+        gameStarted = false;
         gameOver = false;
         sinkGame = false;
         menuRoot.OnItemSelected.AddListener(OnItemSelected);
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        gameStarted = true;
         sinkGame = true;
         sliderTime.enabled = true;
         timerSlider.SetActive(true);

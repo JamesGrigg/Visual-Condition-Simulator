@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlindMode: 0
-  BlindIntensity: 1
+  BlindIntensity: 0
   ColorBlindShader: {fileID: 4800000, guid: 88e723f30bf154fbe91c8f4fe29a7ee9, type: 3}
 --- !u!1 &716048255
 GameObject:
@@ -1363,6 +1363,7 @@ MonoBehaviour:
   effectManager: {fileID: 425755971}
   gameOver: 1
   sinkGame: 0
+  gameStarted: 0
 --- !u!4 &959391078
 Transform:
   m_ObjectHideFlags: 0
@@ -3221,6 +3222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4704802a4d131ad42a822723bc622132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 959391077}
 --- !u!1 &698155792239313361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3366,6 +3368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4704802a4d131ad42a822723bc622132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 959391077}
 --- !u!1 &698155792239313375
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,6 +3514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4704802a4d131ad42a822723bc622132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 959391077}
 --- !u!1 &698155792239313385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,6 +3660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4704802a4d131ad42a822723bc622132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 959391077}
 --- !u!1 &698155792239313407
 GameObject:
   m_ObjectHideFlags: 0
