@@ -8,6 +8,7 @@ public class EventListener : MonoBehaviour
     // Start is called before the first frame update
     private Renderer renderer;
     private Rigidbody rb;
+    private Color objectColour;
 
     public GameManager gameManager;
 
@@ -21,6 +22,7 @@ public class EventListener : MonoBehaviour
     // Update is called once per frame
     public void OnEnter()
     {
+        objectColour = renderer.material.color;
         if (gameManager.gameStarted == true)
         {
             renderer.material.color = Color.yellow;
@@ -31,7 +33,7 @@ public class EventListener : MonoBehaviour
     {
         if (gameManager.gameStarted == true)
         {
-            renderer.material.color = Color.white;
+            renderer.material.color = objectColour;
         }           
     }
 
