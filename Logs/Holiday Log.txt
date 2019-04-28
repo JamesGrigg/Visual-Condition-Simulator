@@ -5,3 +5,4 @@ Implemented colour blindness into menu
 Added a new version of Cataracts, using a custom blur shader, performance issues on mobile
 New way of rendering shadows
 Changed the way interaction happen
+Hover colour
