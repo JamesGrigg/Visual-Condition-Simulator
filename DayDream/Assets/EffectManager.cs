@@ -83,6 +83,7 @@ public class EffectManager : MonoBehaviour
             cataractsLayer.weight = 0;
             starburstsLayer.weight = 0;
             blur.enabled = false;
+            colourblindSim.BlindIntensity = 0.0f;
             colourblindSim.enabled = false;
         }
         else
