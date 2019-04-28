@@ -412,7 +412,7 @@
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-6DOF.xml" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoAmbientOcclusion.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\UnlitVertColorBakedIllum.shader" />
-    <None Include="Assets\PostProcessingDoubleVision.shader" />
+    <None Include="Assets\Custom Shaders\PostProcessingDoubleVision.shader" />
     <None Include="Assets\GoogleVR\Shaders\Video\VideoUnlitShader.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />
     <None Include="Assets\DaydreamElements\Elements\ObjectManipulationDemo\Demo\Shaders\UnlitInterativeObject.shader" />
@@ -443,7 +443,7 @@
     <None Include="Assets\DaydreamElements\Elements\Teleport\Shaders\BezierArcLaserTextured.shader" />
     <None Include="Assets\DaydreamElements\Elements\ArmModels\Demo\Shaders\UnlitVertColorTransparentOutline.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\ExponentialShadowMaps\UnlitVertColorESMReceiver.shader" />
-    <None Include="Assets\PostProcessingBlurShader.shader" />
+    <None Include="Assets\Custom Shaders\PostProcessingBlurShader.shader" />
     <None Include="Assets\DaydreamRenderer\Resources\shadowFilter.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\ExponentialShadowMaps\SnowTerrainESMReceiver.shader" />
     <None Include="Assets\DaydreamElements\Common\Demo\Shaders\PolyObjectLibrary.shader" />

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using jp.gulti.ColorBlind;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using static jp.gulti.ColorBlind.ColorBlindnessSimulator;
 
 public class EffectManager : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class EffectManager : MonoBehaviour
     public PostProcessingBlur blur;
     public Material postprocessMaterial;
 
+    public ColorBlindnessSimulator colourblindSim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +26,7 @@ public class EffectManager : MonoBehaviour
         postprocessMaterial.SetFloat("_BlurSize", 0);
         blur.enabled = false;
 
-        print(postprocessMaterial.GetFloat("_BlurSize"));
-        //postprocessMaterial.SetFloat("_BlurSize", )
+        colourblindSim.enabled = false;
     }
 
 
@@ -51,6 +54,28 @@ public class EffectManager : MonoBehaviour
         else if (item.Equals("Starbursts"))
         {
             VisualConditionSim(starburstsLayer);
+        }        
+        else if (item.Equals("Protonopia"))
+        {
+            if (colourblindSim.BlindIntensity > 0.0f && colourblindSim.BlindMode == ColorBlindMode.Deuteranope)
+            {
+                colourblindSim.BlindIntensity = 0.0f;
+            }
+            
+            colourblindSim.BlindMode = ColorBlindMode.Protanope;
+            ColourBlindnessSim();
+            colourblindSim.enabled = true;
+        }
+        else if (item.Equals("Deuteranopia"))
+        {
+            if (colourblindSim.BlindIntensity > 0.0f && colourblindSim.BlindMode == ColorBlindMode.Protanope)
+            {
+                colourblindSim.BlindIntensity = 0.0f;
+            }
+
+            colourblindSim.BlindMode = ColorBlindMode.Deuteranope;
+            ColourBlindnessSim();
+            colourblindSim.enabled = true;            
         }
         else if (item.Equals("Reset"))
         {
@@ -58,10 +83,10 @@ public class EffectManager : MonoBehaviour
             cataractsLayer.weight = 0;
             starburstsLayer.weight = 0;
             blur.enabled = false;
+            colourblindSim.enabled = false;
         }
         else
         {
-            print("Nothing");
         }
     }
 
@@ -98,7 +123,14 @@ public class EffectManager : MonoBehaviour
 
     void ColourBlindnessSim()
     {
-
+        if (colourblindSim.BlindIntensity < 1.0f)
+        {
+            colourblindSim.BlindIntensity += (float)0.2;
+        }
+        else
+        {
+            colourblindSim.BlindIntensity = 0;
+        }
     }
 
     void DiabeticRetinopy()

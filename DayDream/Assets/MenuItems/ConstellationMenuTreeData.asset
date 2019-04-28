@@ -41,15 +41,12 @@ MonoBehaviour:
       childrenCount: 0
       expanded: 1
     - value: {fileID: 11400000, guid: 3f39a317c846bdb4081ba94469dbaac0, type: 2}
-      childrenCount: 3
+      childrenCount: 2
       expanded: 1
     - value: {fileID: 11400000, guid: 50e2aceee5e3521469a829040340c71a, type: 2}
       childrenCount: 0
       expanded: 1
     - value: {fileID: 11400000, guid: a056c5f7e2392964396f60d669e067c3, type: 2}
-      childrenCount: 0
-      expanded: 1
-    - value: {fileID: 11400000, guid: 7fbd714956eadea42902f1b5acff0aa0, type: 2}
       childrenCount: 0
       expanded: 1
     - value: {fileID: 11400000, guid: bda5a5766041ba645b3f341c3fb83d34, type: 2}
