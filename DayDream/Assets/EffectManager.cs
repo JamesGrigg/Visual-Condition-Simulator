@@ -13,7 +13,9 @@ public class EffectManager : MonoBehaviour
     public PostProcessVolume starburstsLayer;
 
     public PostProcessingBlur blur;
-    public Material postprocessMaterial;
+    public PostProcessingDoubleVision doubleVision;
+    public Material postprocessBlur;
+    public Material postprocessDoubleVision;
 
     public ColorBlindnessSimulator colourblindSim;
 
@@ -23,8 +25,10 @@ public class EffectManager : MonoBehaviour
         glaucomaLayer.weight = 0;
         cataractsLayer.weight = 0;
         starburstsLayer.weight = 0;
-        postprocessMaterial.SetFloat("_BlurSize", 0);
+        postprocessBlur.SetFloat("_BlurSize", 0);
+        postprocessDoubleVision.SetFloat("_Size", 0);
         blur.enabled = false;
+        doubleVision.enabled = false;
 
         colourblindSim.enabled = false;
     }
@@ -35,9 +39,7 @@ public class EffectManager : MonoBehaviour
         if (item.Equals("Cataracts"))
         {
             //VisualConditionSim(cataractsLayer);
-            CataractsController(postprocessMaterial);
-
-
+            CataractsController(postprocessBlur);
         }
         else if (item.Equals("Diabetic Retinopathy"))
         {
@@ -77,12 +79,17 @@ public class EffectManager : MonoBehaviour
             ColourBlindnessSim();
             colourblindSim.enabled = true;            
         }
+        else if (item.Equals("Double Vision"))
+        {
+            DoubleVisionController(postprocessDoubleVision);
+        }
         else if (item.Equals("Reset"))
         {
             glaucomaLayer.weight = 0;
             cataractsLayer.weight = 0;
             starburstsLayer.weight = 0;
             blur.enabled = false;
+            doubleVision.enabled = false;
             colourblindSim.BlindIntensity = 0.0f;
             colourblindSim.enabled = false;
         }
@@ -110,15 +117,34 @@ public class EffectManager : MonoBehaviour
             blur.enabled = true;            
         }
 
-        if (postprocessMaterial.GetFloat("_BlurSize") < 0.02)
+        if (postprocessBlur.GetFloat("_BlurSize") < 0.02)
         {
-            float temp = postprocessMaterial.GetFloat("_BlurSize");
-            postprocessMaterial.SetFloat("_BlurSize", (temp += (float)0.005));
+            float temp = postprocessBlur.GetFloat("_BlurSize");
+            postprocessBlur.SetFloat("_BlurSize", (temp += (float)0.005));
         }
         else
         {
             blur.enabled = false;
-            postprocessMaterial.SetFloat("_BlurSize", 0);
+            postprocessBlur.SetFloat("_BlurSize", 0);
+        }
+    }
+
+    void DoubleVisionController(Material cataractsMaterial)
+    {
+        if (doubleVision.enabled == false)
+        {
+            doubleVision.enabled = true;
+        }
+
+        if (postprocessDoubleVision.GetFloat("_Size") < 5)
+        {
+            float temp = postprocessDoubleVision.GetFloat("_Size");
+            postprocessDoubleVision.SetFloat("_Size", (temp += (float)1));
+        }
+        else
+        {
+            blur.enabled = false;
+            postprocessDoubleVision.SetFloat("_Size", 0);
         }
     }
 

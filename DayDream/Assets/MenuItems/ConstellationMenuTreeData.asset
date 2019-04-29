@@ -23,7 +23,7 @@ MonoBehaviour:
       childrenCount: 4
       expanded: 1
     - value: {fileID: 11400000, guid: a25dd12a54429c8438aeeeae924653db, type: 2}
-      childrenCount: 5
+      childrenCount: 6
       expanded: 1
     - value: {fileID: 11400000, guid: 66a6ac7f5fd0a3e4e9d9bc5d02557384, type: 2}
       childrenCount: 0
@@ -38,6 +38,9 @@ MonoBehaviour:
       childrenCount: 0
       expanded: 1
     - value: {fileID: 11400000, guid: 55a7b52caa20cb940914f3d9d0be8ca0, type: 2}
+      childrenCount: 0
+      expanded: 1
+    - value: {fileID: 11400000, guid: b6b6a761be424dc449fa815f3ca651a6, type: 2}
       childrenCount: 0
       expanded: 1
     - value: {fileID: 11400000, guid: bda5a5766041ba645b3f341c3fb83d34, type: 2}
