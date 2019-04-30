@@ -26,3 +26,6 @@
   - Give the user the option of using just their phone or a full VR headset. This should be a key feature as not everyone will have a
     VR headset, or even a phone powerful enough to use a VR headset.
 - etc.
+
+### Update Log
+https://jamesgrigg.github.io/Project1Portfolio/
