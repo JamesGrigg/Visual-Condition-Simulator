@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(levelThree);
             starburstsLayer.enabled = false;
             glaucomaLayer.enabled = true;
-            glaucomaLayer.weight = 0.25f;
+            glaucomaLayer.weight = 0.31f;
             vcText.text = "Visual Condition: Glaucoma";
             levelText.text = "Level: 3";
         }
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
             IEnumerator levelFive = SpawnCoroutine();
             StartCoroutine(levelFive);
             starburstsLayer.weight = 0.9f;
-            glaucomaLayer.weight = 0.4f;
+            glaucomaLayer.weight = 0.45f;
             postprocessBlur.SetFloat("_BlurSize", 0.023f);
             vcText.text = "Visual Condition: Cataracts, Glaucoma, Starbursts *HARD*";
             levelText.text = "Level: 7";
