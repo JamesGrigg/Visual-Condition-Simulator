@@ -12,7 +12,7 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void CheckPlay()
@@ -22,9 +22,15 @@ public class MainMenuScript : MonoBehaviour
         playButton.SetActive(false);
     }
 
+    public void Restart()
+    {
+        statusText.enabled = true;
+        playButton.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
