@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject timerSlider;
     public GameObject sliderUI;
     public SliderScripts sliderTime;
+    public GameObject uiCam;
 
     public ConstellationMenuRoot menuRoot;
     public EffectManager effectManager;
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
         {
             movableObject.enabled = false;
         }
+
+        uiCam.SetActive(true);
     }
 
     public void StartGame()
