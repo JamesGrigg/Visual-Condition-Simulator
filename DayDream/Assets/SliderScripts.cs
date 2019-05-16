@@ -10,14 +10,16 @@ public class SliderScripts : MonoBehaviour
 
     void Start()
     {
-        time = 10f;
+        time = 5f;
         slider.maxValue = time;
         slider.minValue = 0f;
     }
 
-    public void Restart()
+    public void Restart(int passedTime)
     {
-        time = 10f;
+        time = passedTime;
+        slider.maxValue = time;
+        slider.minValue = 0f;
         slider.value = time;
     }
 

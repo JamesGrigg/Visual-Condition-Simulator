@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public bool gameOver;
     public bool sinkGame;
+    public bool drawerGame;
+    public bool cupboardGame;
     public bool gameStarted; // This variable allows me to control elements in scene to stop things from being interacted with too early
     bool win = false;
 
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
     public Material postprocessBlur;
     public ColorBlindnessSimulator colourblindSim;
     private Vector3 startPosition;
+
+    public Text objective;
 
     public Text levelText;
     public Text vcText;
@@ -83,7 +87,7 @@ public class GameManager : MonoBehaviour
         timerSlider.SetActive(true);
         instructionUI.SetActive(true);
         sliderUI.SetActive(true);
-        gameTimer = SpawnCoroutine();
+        gameTimer = SpawnCoroutine(5);        
         StartCoroutine(gameTimer);
     }
 
@@ -111,15 +115,18 @@ public class GameManager : MonoBehaviour
         gameOver = false;
         ShowUI();
         levelNumber += 1;
-        sliderTime.Restart();
         sinkObject.transform.position = startPosition;
 
         timerSlider.SetActive(true);
 
         if (levelNumber == 2) //Starbursts
         {
-            IEnumerator levelTwo = SpawnCoroutine();
+            sliderTime.Restart(10);
+            sinkGame = false;
+            drawerGame = true;
+            IEnumerator levelTwo = SpawnCoroutine(10);
             StartCoroutine(levelTwo);
+            objective.text = "Put object into Drawer under Sink";
             starburstsLayer.enabled = true;
             starburstsLayer.weight = 0.8f;
             vcText.text = "Visual Condition: Starbursts";
@@ -127,8 +134,12 @@ public class GameManager : MonoBehaviour
         }
         else if (levelNumber == 3) //Glaucoma
         {
-            IEnumerator levelThree = SpawnCoroutine();
+            sliderTime.Restart(10);
+            drawerGame = false;
+            cupboardGame = true;
+            IEnumerator levelThree = SpawnCoroutine(10);
             StartCoroutine(levelThree);
+            objective.text = "Put object into Cupboard Behind You";
             starburstsLayer.enabled = false;
             glaucomaLayer.enabled = true;
             glaucomaLayer.weight = 0.31f;
@@ -137,7 +148,8 @@ public class GameManager : MonoBehaviour
         }
         else if (levelNumber == 4) //Cataracts
         {
-            IEnumerator levelFour = SpawnCoroutine();
+            sliderTime.Restart(10);
+            IEnumerator levelFour = SpawnCoroutine(10);
             StartCoroutine(levelFour);
             glaucomaLayer.enabled = false;
             blur.enabled = true;
@@ -147,7 +159,8 @@ public class GameManager : MonoBehaviour
         }
         else if (levelNumber == 5) //Common - Glaucoma and Cataracts
         {
-            IEnumerator levelFive = SpawnCoroutine();
+            sliderTime.Restart(10);
+            IEnumerator levelFive = SpawnCoroutine(10);
             StartCoroutine(levelFive);
             glaucomaLayer.enabled = true;
             vcText.text = "Visual Conditions: Cataracts and Glaucoma";
@@ -155,7 +168,8 @@ public class GameManager : MonoBehaviour
         }
         else if (levelNumber == 6) //Uncommon - Starbursts, Glaucoma and Cataracts
         {
-            IEnumerator levelFive = SpawnCoroutine();
+            sliderTime.Restart(10);
+            IEnumerator levelFive = SpawnCoroutine(10);
             StartCoroutine(levelFive);
             starburstsLayer.enabled = true;
             vcText.text = "Visual Condition: Cataracts, Glaucoma, Starbursts";
@@ -163,7 +177,8 @@ public class GameManager : MonoBehaviour
         }
         else if (levelNumber == 7) //HARD - Starbursts, Glaucoma and Cataracts
         {
-            IEnumerator levelFive = SpawnCoroutine();
+            sliderTime.Restart(10);
+            IEnumerator levelFive = SpawnCoroutine(10);
             StartCoroutine(levelFive);
             starburstsLayer.weight = 0.9f;
             glaucomaLayer.weight = 0.45f;
@@ -228,9 +243,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnCoroutine()
+    IEnumerator SpawnCoroutine(int time)
     {
-        yield return new WaitForSeconds(10); //wait 5 seconds
+        yield return new WaitForSeconds(time); //wait 'time' amount seconds
         timerSlider.SetActive(false);
         if (!win)
         {
