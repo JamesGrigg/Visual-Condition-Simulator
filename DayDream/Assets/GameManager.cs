@@ -121,12 +121,9 @@ public class GameManager : MonoBehaviour
 
         if (levelNumber == 2) //Starbursts
         {
-            sliderTime.Restart(10);
-            sinkGame = false;
-            drawerGame = true;
+            sliderTime.Restart(10);            
             IEnumerator levelTwo = SpawnCoroutine(10);
-            StartCoroutine(levelTwo);
-            objective.text = "Put object into Drawer under Sink";
+            StartCoroutine(levelTwo);            
             starburstsLayer.enabled = true;
             starburstsLayer.weight = 0.8f;
             vcText.text = "Visual Condition: Starbursts";
@@ -135,11 +132,11 @@ public class GameManager : MonoBehaviour
         else if (levelNumber == 3) //Glaucoma
         {
             sliderTime.Restart(10);
-            drawerGame = false;
-            cupboardGame = true;
+            sinkGame = false;
+            drawerGame = true;            
             IEnumerator levelThree = SpawnCoroutine(10);
             StartCoroutine(levelThree);
-            objective.text = "Put object into Cupboard Behind You";
+            objective.text = "Put object into Drawer under Sink";
             starburstsLayer.enabled = false;
             glaucomaLayer.enabled = true;
             glaucomaLayer.weight = 0.31f;
@@ -149,8 +146,11 @@ public class GameManager : MonoBehaviour
         else if (levelNumber == 4) //Cataracts
         {
             sliderTime.Restart(10);
+            drawerGame = false;
+            cupboardGame = true;
             IEnumerator levelFour = SpawnCoroutine(10);
             StartCoroutine(levelFour);
+            objective.text = "Put object into Cupboard Behind You";
             glaucomaLayer.enabled = false;
             blur.enabled = true;
             postprocessBlur.SetFloat("_BlurSize", 0.02f);
