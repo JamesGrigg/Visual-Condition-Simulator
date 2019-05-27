@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject sliderUI;
     public SliderScripts sliderTime;
     public GameObject uiCam;
+    public GameObject hudCam;
+    public GameObject mainCam;
+    public GameObject introCam;
 
     public ConstellationMenuRoot menuRoot;
     public EffectManager effectManager;
@@ -68,7 +71,23 @@ public class GameManager : MonoBehaviour
             movableObject.enabled = false;
         }
 
+        IntroScene();
+    }
+
+    void IntroScene()
+    {
+        mainCam.SetActive(false);
         uiCam.SetActive(true);
+        hudCam.SetActive(false);
+        StartCoroutine(IntroWait(4));
+    }
+    void ExitIntroScene()
+    {
+        uiCam.SetActive(false);
+        mainCam.SetActive(true);
+        uiCam.SetActive(true);
+        introCam.SetActive(false);
+        hudCam.SetActive(true);
     }
 
     public void StartGame()
@@ -257,5 +276,10 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f); //wait 5 seconds  
         NextLevel();
+    }
+    IEnumerator IntroWait(int time)
+    {
+        yield return new WaitForSeconds(time); //wait 5 seconds  
+        ExitIntroScene();
     }
 }
