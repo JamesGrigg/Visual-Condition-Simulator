@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject hudCam;
     public GameObject mainCam;
     public GameObject introCam;
+    public Text introText;
 
     public ConstellationMenuRoot menuRoot;
     public EffectManager effectManager;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     public bool cupboardGame;
     public bool gameStarted; // This variable allows me to control elements in scene to stop things from being interacted with too early
     bool win = false;
+    private string introVCText;
 
     private MoveablePhysicsObject[] movableObjects;
 
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        introVCText = "No Visual Condition";
         vcText.text = "Visual Condition Names";
         levelText.text = "Level Number";
         startPosition = sinkObject.transform.position;
@@ -69,13 +72,12 @@ public class GameManager : MonoBehaviour
         foreach (MoveablePhysicsObject movableObject in movableObjects)
         {
             movableObject.enabled = false;
-        }
-
-        IntroScene();
+        }        
     }
 
     void IntroScene()
     {
+        introText.text = introVCText;
         mainCam.SetActive(false);
         uiCam.SetActive(true);
         hudCam.SetActive(false);
@@ -88,9 +90,15 @@ public class GameManager : MonoBehaviour
         uiCam.SetActive(true);
         introCam.SetActive(false);
         hudCam.SetActive(true);
+        StartRealGame();
     }
 
     public void StartGame()
+    {
+        IntroScene();        
+    }
+
+    void StartRealGame()
     {
         foreach (MoveablePhysicsObject movableObject in movableObjects)
         {
@@ -106,7 +114,7 @@ public class GameManager : MonoBehaviour
         timerSlider.SetActive(true);
         instructionUI.SetActive(true);
         sliderUI.SetActive(true);
-        gameTimer = SpawnCoroutine(5);        
+        gameTimer = SpawnCoroutine(5);
         StartCoroutine(gameTimer);
     }
 
@@ -140,6 +148,7 @@ public class GameManager : MonoBehaviour
 
         if (levelNumber == 2) //Starbursts
         {
+            introVCText = "Starbursts";
             sliderTime.Restart(10);            
             IEnumerator levelTwo = SpawnCoroutine(10);
             StartCoroutine(levelTwo);            
@@ -150,6 +159,7 @@ public class GameManager : MonoBehaviour
         }
         else if (levelNumber == 3) //Glaucoma
         {
+            introVCText = "Glaucoma";
             sliderTime.Restart(10);
             sinkGame = false;
             drawerGame = true;            
@@ -164,6 +174,7 @@ public class GameManager : MonoBehaviour
         }
         else if (levelNumber == 4) //Cataracts
         {
+            introVCText = "Cataracts";
             sliderTime.Restart(10);
             drawerGame = false;
             cupboardGame = true;

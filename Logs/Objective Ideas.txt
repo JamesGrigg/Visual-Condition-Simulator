@@ -5,6 +5,10 @@ Open cupboard and put object in there
 
 Split into sections:
 
+3 levels per section 
+
+No visual condition / tutorial
+
 Cataracts:
 Difficulties - Vision is blurred, reading, focusing on objects,
 

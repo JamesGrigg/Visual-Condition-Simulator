@@ -79,7 +79,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-6fe5fa650aa33fe334f1001d020d3ef7 Assembly-CSharp.dll:.GameManager
+b11242aba05bef57005bb1064574090a Assembly-CSharp.dll:.GameManager
 fac09cdced67784d53a73e2ae25e0a0c Assembly-CSharp.dll:DaydreamElements.ArmModels.BallReturner
 f542c1afca5bb4022f91fdda19b8d622 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.DepthOfField
 3bb1b4bae6823a4524e793cdb8702970 Assembly-CSharp.dll:GoogleVR.PermissionsDemo.PermissionsFlowManager
