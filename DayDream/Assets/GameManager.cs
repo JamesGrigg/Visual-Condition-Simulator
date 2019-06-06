@@ -54,9 +54,11 @@ public class GameManager : MonoBehaviour
     public Text vcText;
 
     private IEnumerator gameTimer;
+    private int conditionNumber;
 
     void Start()
     {
+        conditionNumber = 0;
         introVCText = "No Visual Condition";
         vcText.text = "Visual Condition Names";
         levelText.text = "Level Number";
@@ -78,6 +80,7 @@ public class GameManager : MonoBehaviour
     void IntroScene()
     {
         introText.text = introVCText;
+        introCam.SetActive(true);
         mainCam.SetActive(false);
         uiCam.SetActive(true);
         hudCam.SetActive(false);
@@ -95,7 +98,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        IntroScene();        
+        IntroScene();
+        vcText.text = "Visual Condition: No Visual Condition";
+        levelText.text = "Level: 1";
     }
 
     void StartRealGame()
@@ -103,10 +108,7 @@ public class GameManager : MonoBehaviour
         foreach (MoveablePhysicsObject movableObject in movableObjects)
         {
             movableObject.enabled = true;
-        }
-
-        vcText.text = "Visual Condition: None";
-        levelText.text = "Level: 1";
+        }        
 
         gameStarted = true;
         sinkGame = true;
@@ -114,7 +116,7 @@ public class GameManager : MonoBehaviour
         timerSlider.SetActive(true);
         instructionUI.SetActive(true);
         sliderUI.SetActive(true);
-        gameTimer = SpawnCoroutine(5);
+        gameTimer = SpawnCoroutine(10);
         StartCoroutine(gameTimer);
     }
 
@@ -137,6 +139,71 @@ public class GameManager : MonoBehaviour
     }
 
     void NextLevel()
+    {
+        IEnumerator level;       
+        win = false;
+        gameOver = false;
+        levelNumber += 1;
+        sinkObject.transform.position = startPosition;        
+
+        SetNewVisualCondition();
+        vcText.text = "Visual Condition: " + introVCText;
+        levelText.text = "Level: " + levelNumber;        
+        timerSlider.SetActive(true);
+        level = SpawnCoroutine(10);
+        sliderTime.Restart(10);
+        level = SpawnCoroutine(10);
+        ShowUI();
+
+        if (levelNumber == 2)
+        {
+            StopCoroutine(level);
+            sliderTime.Restart(10);
+            level = SpawnCoroutine(10);
+            StartCoroutine(level);
+            //starburstsLayer.enabled = true;
+            //starburstsLayer.weight = 0.8f;
+        }
+        else if (levelNumber == 3)
+        {
+            StopCoroutine(level);
+            sliderTime.Restart(10);
+            level = SpawnCoroutine(10);
+            StartCoroutine(level);
+            //starburstsLayer.enabled = false;
+            //glaucomaLayer.enabled = true;
+            //glaucomaLayer.weight = 0.31f;            
+            conditionNumber += 1;            
+        }
+        else if (levelNumber == 4)
+        {
+            levelNumber = 1;
+            levelText.text = "Level: " + levelNumber;
+            StopCoroutine(level);
+            RemoveUI();            
+            StartCoroutine(IntroWait(4));
+            IntroScene();            
+        }
+    }
+
+    void SetNewVisualCondition()
+    {
+        if (conditionNumber == 1)
+        {
+            introVCText = "Starbursts";
+        }
+        else if (conditionNumber == 2)
+        {
+            introVCText = "Glaucoma";
+        }
+        else if (conditionNumber == 3)
+        {
+            introVCText = "Cataracts";
+        }
+    }
+
+    //This method is the original game code, used for open days.
+    void OldNextLevel()
     {
         win = false;
         gameOver = false;
@@ -255,10 +322,12 @@ public class GameManager : MonoBehaviour
     {
         instructionUI.SetActive(false);
         timerSlider.SetActive(false);
+        sliderUI.SetActive(false);
     }
 
     void ShowUI()
     {
+        sliderUI.SetActive(true);
         completeLevelUI.SetActive(false);
         instructionUI.SetActive(true);
         timerSlider.SetActive(true);

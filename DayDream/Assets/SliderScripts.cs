@@ -10,7 +10,7 @@ public class SliderScripts : MonoBehaviour
 
     void Start()
     {
-        time = 5f;
+        time = 10f;
         slider.maxValue = time;
         slider.minValue = 0f;
     }
