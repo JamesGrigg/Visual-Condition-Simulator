@@ -38,14 +38,15 @@ public class GameManager : MonoBehaviour
 
     //These variables are for open day only
     public MainMenuScript mainMenu;
-    public RestartMenu restartMenu;
-    public GameObject sinkObject;
+    public RestartMenu restartMenu;    
     private int levelNumber;
     public PostProcessVolume glaucomaLayer;
     public PostProcessVolume starburstsLayer;
     public PostProcessingBlur blur;
     public Material postprocessBlur;
     public ColorBlindnessSimulator colourblindSim;
+
+    public GameObject sinkObject;
     private Vector3 startPosition;
 
     public Text objective;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        colourblindSim.enabled = false;
         conditionNumber = 0;
         introVCText = "No Visual Condition";
         vcText.text = "Visual Condition Names";
@@ -75,6 +77,17 @@ public class GameManager : MonoBehaviour
         {
             movableObject.enabled = false;
         }        
+    }
+
+    public void SandboxMode()
+    {
+        foreach (MoveablePhysicsObject movableObject in movableObjects)
+        {
+            movableObject.enabled = true;
+        }
+
+        hudCam.SetActive(false);
+        uiCam.SetActive(false);
     }
 
     void IntroScene()
@@ -144,7 +157,7 @@ public class GameManager : MonoBehaviour
         win = false;
         gameOver = false;
         levelNumber += 1;
-        sinkObject.transform.position = startPosition;        
+        sinkObject.transform.position = startPosition;
 
         SetNewVisualCondition();
         vcText.text = "Visual Condition: " + introVCText;
@@ -154,25 +167,33 @@ public class GameManager : MonoBehaviour
         sliderTime.Restart(10);
         level = SpawnCoroutine(10);
         ShowUI();
+        SetVisualCondition();
 
-        if (levelNumber == 2)
+        if (levelNumber == 1)
+        {
+            objective.text = "Put Object in Sink";
+        }
+        else if (levelNumber == 2)
         {
             StopCoroutine(level);
-            sliderTime.Restart(10);
-            level = SpawnCoroutine(10);
+            sliderTime.Restart(15);
+            level = SpawnCoroutine(15);
+            sinkGame = false;
+            drawerGame = true;
+            cupboardGame = false;
+            objective.text = "Put object into Red Drawer under Sink";
             StartCoroutine(level);
-            //starburstsLayer.enabled = true;
-            //starburstsLayer.weight = 0.8f;
         }
         else if (levelNumber == 3)
         {
             StopCoroutine(level);
-            sliderTime.Restart(10);
-            level = SpawnCoroutine(10);
-            StartCoroutine(level);
-            //starburstsLayer.enabled = false;
-            //glaucomaLayer.enabled = true;
-            //glaucomaLayer.weight = 0.31f;            
+            sliderTime.Restart(15);
+            level = SpawnCoroutine(15);
+            sinkGame = false;
+            drawerGame = false;
+            cupboardGame = true;
+            objective.text = "Put object into Red Cupboard Behind You";
+            StartCoroutine(level);      
             conditionNumber += 1;            
         }
         else if (levelNumber == 4)
@@ -186,17 +207,63 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void SetVisualCondition()
+    {
+        if (introVCText.Equals("No Visual Condition"))
+        {
+            colourblindSim.enabled = false;
+            starburstsLayer.enabled = false;
+            glaucomaLayer.enabled = false;
+            blur.enabled = false;
+        }
+        else if (introVCText.Equals("Colour Blindness"))
+        {
+            colourblindSim.enabled = true;
+            glaucomaLayer.enabled = false;
+            starburstsLayer.enabled = false;
+            blur.enabled = false;
+        }
+        else if (introVCText.Equals("Starbursts"))
+        {
+            colourblindSim.enabled = false;
+            blur.enabled = false;
+            glaucomaLayer.enabled = false;
+            starburstsLayer.enabled = true;
+            starburstsLayer.weight = 0.8f;
+        }
+        else if (introVCText.Equals("Glaucoma"))
+        {
+            colourblindSim.enabled = false;
+            blur.enabled = false;
+            starburstsLayer.enabled = false;
+            glaucomaLayer.enabled = true;
+            glaucomaLayer.weight = 0.31f;
+        }
+        else if (introVCText.Equals("Cataracts"))
+        {
+            colourblindSim.enabled = false;
+            glaucomaLayer.enabled = false;
+            starburstsLayer.enabled = false;
+            blur.enabled = true;
+            postprocessBlur.SetFloat("_BlurSize", 0.023f);
+        }
+    }
+
     void SetNewVisualCondition()
     {
         if (conditionNumber == 1)
         {
-            introVCText = "Starbursts";
+            introVCText = "Colour Blindness";
         }
         else if (conditionNumber == 2)
         {
-            introVCText = "Glaucoma";
+            introVCText = "Starbursts";
         }
         else if (conditionNumber == 3)
+        {
+            introVCText = "Glaucoma";
+        }
+        else if (conditionNumber == 4)
         {
             introVCText = "Cataracts";
         }

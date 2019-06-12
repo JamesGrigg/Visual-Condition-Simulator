@@ -5,10 +5,11 @@ using UnityEngine;
 public class DrawerScript : MonoBehaviour
 {
     public GameManager gameManager;
+    public GameObject sinkObject;
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider collision)
     {
-        if (gameManager.gameOver == false && gameManager.drawerGame == true)
+        if (gameManager.gameOver == false && gameManager.drawerGame == true && collision.gameObject.tag == sinkObject.tag)
         {
             gameManager.CompleteLevel();
         }

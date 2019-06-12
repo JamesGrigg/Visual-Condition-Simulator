@@ -13,7 +13,6 @@ public class EffectManager : MonoBehaviour
     public PostProcessVolume starburstsLayer;
 
     public PostProcessingBlur blur;
-    public PostProcessingDoubleVision doubleVision;
     public Material postprocessBlur;
     public Material postprocessDoubleVision;
 
@@ -28,7 +27,6 @@ public class EffectManager : MonoBehaviour
         postprocessBlur.SetFloat("_BlurSize", 0);
         postprocessDoubleVision.SetFloat("_Size", 0);
         blur.enabled = false;
-        doubleVision.enabled = false;
 
         colourblindSim.enabled = false;
     }
@@ -89,7 +87,6 @@ public class EffectManager : MonoBehaviour
             cataractsLayer.weight = 0;
             starburstsLayer.weight = 0;
             blur.enabled = false;
-            doubleVision.enabled = false;
             colourblindSim.BlindIntensity = 0.0f;
             colourblindSim.enabled = false;
         }
@@ -131,11 +128,6 @@ public class EffectManager : MonoBehaviour
 
     void DoubleVisionController(Material cataractsMaterial)
     {
-        if (doubleVision.enabled == false)
-        {
-            doubleVision.enabled = true;
-        }
-
         if (postprocessDoubleVision.GetFloat("_Size") < 5)
         {
             float temp = postprocessDoubleVision.GetFloat("_Size");
