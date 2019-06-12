@@ -11,6 +11,7 @@ using jp.gulti.ColorBlind;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
     public GameObject completeLevelUI;
     public GameObject failedLevelUI;
     public GameObject instructionUI;
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator gameTimer;
     private int conditionNumber;
+    private int restartVariable;
 
     void Start()
     {
@@ -169,42 +171,51 @@ public class GameManager : MonoBehaviour
         ShowUI();
         SetVisualCondition();
 
-        if (levelNumber == 1)
+        if (introVCText.Equals("Finished!"))
         {
-            objective.text = "Put Object in Sink";
+            IntroScene();
+            GameOver();
+            sliderTime.enabled = false;
+            sliderUI.SetActive(false);
+            timerSlider.SetActive(false);
         }
-        else if (levelNumber == 2)
+        else
         {
-            StopCoroutine(level);
-            sliderTime.Restart(15);
-            level = SpawnCoroutine(15);
-            sinkGame = false;
-            drawerGame = true;
-            cupboardGame = false;
-            objective.text = "Put object into Red Drawer under Sink";
-            StartCoroutine(level);
+            if (levelNumber == 2)
+            {
+                StopCoroutine(level);
+                sliderTime.Restart(15);
+                level = SpawnCoroutine(15);
+                sinkGame = false;
+                drawerGame = true;
+                cupboardGame = false;
+                objective.text = "Put object into Red Drawer under Sink";
+                StartCoroutine(level);
+            }
+            else if (levelNumber == 3)
+            {
+                StopCoroutine(level);
+                sliderTime.Restart(15);
+                level = SpawnCoroutine(15);
+                sinkGame = false;
+                drawerGame = false;
+                cupboardGame = true;
+                objective.text = "Put object into Red Cupboard Behind You";
+                StartCoroutine(level);
+                conditionNumber += 1;
+            }
+            else if (levelNumber == 4)
+            {
+                levelNumber = 1;
+                levelText.text = "Level: " + levelNumber;
+                objective.text = "Put Object in Sink";
+                StopCoroutine(level);
+                RemoveUI();
+                StartCoroutine(IntroWait(4));
+                IntroScene();
+            }
         }
-        else if (levelNumber == 3)
-        {
-            StopCoroutine(level);
-            sliderTime.Restart(15);
-            level = SpawnCoroutine(15);
-            sinkGame = false;
-            drawerGame = false;
-            cupboardGame = true;
-            objective.text = "Put object into Red Cupboard Behind You";
-            StartCoroutine(level);      
-            conditionNumber += 1;            
-        }
-        else if (levelNumber == 4)
-        {
-            levelNumber = 1;
-            levelText.text = "Level: " + levelNumber;
-            StopCoroutine(level);
-            RemoveUI();            
-            StartCoroutine(IntroWait(4));
-            IntroScene();            
-        }
+        
     }
 
     void SetVisualCondition()
@@ -251,7 +262,7 @@ public class GameManager : MonoBehaviour
 
     void SetNewVisualCondition()
     {
-        if (conditionNumber == 1)
+        if (conditionNumber == 5)
         {
             introVCText = "Colour Blindness";
         }
@@ -266,6 +277,10 @@ public class GameManager : MonoBehaviour
         else if (conditionNumber == 4)
         {
             introVCText = "Cataracts";
+        }
+        else if (conditionNumber == 1)
+        {
+            introVCText = "Finished!";            
         }
     }
 
@@ -354,6 +369,7 @@ public class GameManager : MonoBehaviour
 
     void WonGame()
     {
+        sliderUI.SetActive(false);
         vcText.text = "Congrats!";
         levelText.text = "You completed the challenge!";
         starburstsLayer.enabled = false;
@@ -382,7 +398,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene        
     }
 
     void RemoveUI()
