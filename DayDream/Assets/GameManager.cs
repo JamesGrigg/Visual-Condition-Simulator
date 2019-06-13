@@ -49,6 +49,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject sinkObject;
     private Vector3 startPosition;
+    public GameObject panOne;
+    private Vector3 startPositionPanOne;
+    public GameObject panTwo;
+    private Vector3 startPositionPanTwo;
+    public GameObject potObject;
+    private Vector3 startPositionPot;
 
     public Text objective;
 
@@ -67,6 +73,9 @@ public class GameManager : MonoBehaviour
         vcText.text = "Visual Condition Names";
         levelText.text = "Level Number";
         startPosition = sinkObject.transform.position;
+        startPositionPanOne = panOne.transform.position;
+        startPositionPanTwo = panTwo.transform.position;
+        startPositionPot = potObject.transform.position;
         levelNumber = 1;
         gameStarted = false;
         gameOver = false;
@@ -160,6 +169,9 @@ public class GameManager : MonoBehaviour
         gameOver = false;
         levelNumber += 1;
         sinkObject.transform.position = startPosition;
+        panOne.transform.position = startPositionPanOne;
+        panTwo.transform.position = startPositionPanTwo;
+        potObject.transform.position = startPositionPot;
 
         SetNewVisualCondition();
         vcText.text = "Visual Condition: " + introVCText;
@@ -262,7 +274,7 @@ public class GameManager : MonoBehaviour
 
     void SetNewVisualCondition()
     {
-        if (conditionNumber == 5)
+        if (conditionNumber == 1)
         {
             introVCText = "Colour Blindness";
         }
@@ -278,7 +290,7 @@ public class GameManager : MonoBehaviour
         {
             introVCText = "Cataracts";
         }
-        else if (conditionNumber == 1)
+        else if (conditionNumber == 5)
         {
             introVCText = "Finished!";            
         }
