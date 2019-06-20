@@ -18,3 +18,6 @@ Shader Performance: Due to this running in VR, we almost require the app to run 
 Menu Art: I am not an artist and have not implemented any designs onto the Constellation menu system for each of the options. They currently just use the default images that come with Daydream Elements, as I was too lazy to create new ones.
 
 File Size: Due to me using Daydream Elements, the project is rather large. I tried changing it from Mono development due to being on mobile, but it caused a lot of issues so this can be something to fix in the future. Also removing someof the extra things (such as models) that Daydream Elements introduces will defintely help with file size.
+
+## Scripts Used
+To get some of they key things working in this app, I was required to write some custom scripts. Below are the Unity screenshots of the scripts, along with a description on what they do.
