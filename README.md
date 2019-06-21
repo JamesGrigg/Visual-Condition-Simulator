@@ -32,7 +32,7 @@ To get some of they key things working in this app, I was required to write some
 
 ### Main Menu
 
-![Image](ReadMeImages/MainMenurScript.png)
+![Image](ReadMeImages/MainMenuScript.png)
 
 ### Instruction Menu
 
