@@ -21,3 +21,27 @@ File Size: Due to me using Daydream Elements, the project is rather large. I tri
 
 ## Scripts Used
 To get some of they key things working in this app, I was required to write some custom scripts. Below are the Unity screenshots of the scripts, along with a description on what they do.
+
+### Game Manager
+
+![Image](ReadMeImages/GameManagerScript.png)
+
+### Effect Manager
+
+![Image](ReadMeImages/EffectManagerScript.png)
+
+### Main Menu
+
+![Image](ReadMeImages/MainMenurScript.png)
+
+### Instruction Menu
+
+![Image](ReadMeImages/InstructionsMenuScript.png)
+
+### Restart Menu
+
+![Image](ReadMeImages/RestartMenuScript.png)
+
+### Slider Scripts
+
+![Image](ReadMeImages/SliderScript.png)
