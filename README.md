@@ -23,18 +23,22 @@ File Size: Due to me using Daydream Elements, the project is rather large. I tri
 To get some of they key things working in this app, I was required to write some custom scripts. Below are the Unity screenshots of the scripts, along with a description on what they do.
 
 ### Game Manager
+The Game Manager script is the most important script in the whole project. It controls basically everything. It controls the game and how the game runs (however, I could put the game into its own script file to clean it up a little), it controls the visual conditions, it controls the objects in the scene, the UI, the HUD and the different cameras in the scene.
 
 ![Image](ReadMeImages/GameManagerScript.png)
 
 ### Effect Manager
+The Effect Manager controls how the different visual conditions are changed when in game. You are able to control the different 'weight' values of the visual conditions. This script controls how much the visual condition is changed when selecting the different levels for the visual condtions. This script would be used if you wanted to add sliders into the game for controlling the visual condition potency.
 
 ![Image](ReadMeImages/EffectManagerScript.png)
 
 ### Constellation Menu
+This script is a script that comes with Daydream Elements, however I am including it here as ther is minimal official documentation on it. Essentially, this controls the buttons and scripts used with the constellation menu. You add in your base root menu as the 'menu tree', and then add to that menu tree outside of this script. This script also controls which buttons control what in the menu. You are also able to change where the menu sits in 3D space to help with usability.
 
 ![Image](ReadMeImages/ConstellationMenuScript.png)
 
 ### Main Menu
+This script controls the main menu that is present when you start the game. It has a 'Play' button and 'Sandbox' button that it controls, as well as a 'Back to Menu' button. It also controls the text that is displayed on the menu in case it is needed to be changed. The 'Play' button controls the start of the game, the 'Sandbox' button controls the ability to enter the sandbox mode where you don't have any objective, and the 'Back to Menu' button controls the ability to reset the game when you want to exit the sandbox mode. All of these buttons influence the Game Manager, hence why the script passes in the Game Manager script.
 
 ![Image](ReadMeImages/MainMenuScript.png)
 
