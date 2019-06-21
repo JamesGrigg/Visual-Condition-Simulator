@@ -73,5 +73,6 @@ This is an example of the post processing effects I use for a couple of the visu
 ![Image](ReadMeImages/PostProcessingExample.png)
 
 ### Sink Trigger
+This script controls the triggers used in the sink. There are 2 other scripts almost identical to this for the cupboard and the drawer, however I have chosen not to include screenshots of these as they work the same way. These scripts just check which level of the game you are onto, then either activate or deactivate the triggers so that the Game Manager can see if you have completed the game objective. The drawer trigger script checks to see if certain objects have gone into it, otherwise when you try and close the drawer, the drawers itself will cause a false positive reading for the trigger. That is just something to consider when developing with moving triggers.
 
 ![Image](ReadMeImages/SinkTriggerScript.png)
