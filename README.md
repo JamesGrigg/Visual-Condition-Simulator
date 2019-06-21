@@ -43,6 +43,7 @@ This script controls the main menu that is present when you start the game. It h
 ![Image](ReadMeImages/MainMenuScript.png)
 
 ### Instruction Menu
+This script controls the instruction menu that is constantly on display on the Eastern wall. I have it setup so that each set of instructions is a different Text element, as then I was able to easily see how it looked on the wall, however in the future this could be changed to just 1 Text element that is updated on each slide. Either way it will work the same way, this way just allows for more customisation. If I find that people struggle with the game, I will think about updating it so that the user has to read through all of the instructions (or click skip) before they can play to ensure they know how to play.
 
 ![Image](ReadMeImages/InstructionsMenuScript.png)
 
