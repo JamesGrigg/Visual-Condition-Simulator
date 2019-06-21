@@ -60,7 +60,7 @@ To get some of they key things working in this app, I was required to write some
 
 ### Post Processing
 
-![Image](ReadMeImages/PostProcessingExampleScript.png)
+![Image](ReadMeImages/PostProcessingExample.png)
 
 ### Sink Trigger
 
