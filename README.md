@@ -48,22 +48,27 @@ This script controls the instruction menu that is constantly on display on the E
 ![Image](ReadMeImages/InstructionsMenuScript.png)
 
 ### Restart Menu
+This script controls the ability to restart the game upon completing/failing the game. This script is essentially the same as the 'Play' button script from the Main Menu Script, and to reduce scripts you could combine the 2, however this way it is cleaner for layout.
 
 ![Image](ReadMeImages/RestartMenuScript.png)
 
 ### Slider Scripts
+This script controls the timer that is displayed on the wall when the game is active. It controls how much time the timer has before it finishes, and this time can be changed through using the Time variable. I have changed the time value in the Game Manager for the different levels.
 
 ![Image](ReadMeImages/SliderScript.png)
 
 ### Highlight on Hover
+This script is also from Daydream Elements, however it is a nice script to include into this game. It add a nice animated hover effect when hovering over items. This script controls the colour that the object will change to when highlighted, the speed in which the animation occurs and the object that is affected.
 
 ![Image](ReadMeImages/HighlightOnHoverScript.png)
 
 ### Movable Physics
+This script comes from Daydream Elements, and is used to control the objects that need to be moved. It is used for controlling how the user interacts with the objects in the world. It also allows for objects to be reset when dropping them, which is very useful if you want the obejcts the land the right way up. This script just makes controlling objects a lot more user friendly.
 
 ![Image](ReadMeImages/MoveablePhysicsObjectScript.png)
 
 ### Post Processing
+This is an example of the post processing effects I use for a couple of the visual conditions. To apply these, you add a Post Processing Volume script to the scene, which comes in the Unity plugin 'Post Processing Stack'. This script is important for getting the effects to look how you want, and the most important part of the Post Process Volume is the 'weight' value. This controls the opacity essentially of the effect. From there, you just need to choose your effects that you want to add, and then customise them to be exactly what you want them to look like. Quite simple.
 
 ![Image](ReadMeImages/PostProcessingExample.png)
 
